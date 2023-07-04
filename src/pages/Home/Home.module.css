@@ -1,0 +1,40 @@
+.home{
+  width: 360px;
+  height: 96.25vh;
+  background: #F0F4F7;
+}
+
+.p{
+  position: fixed;
+  width: 328px;
+  height: 24px;
+  top: 216px;
+  left: 16px;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #DA0D1E;
+  color: #FFFFFF;
+  font-weight: 500;
+
+  position: fixed;
+  width: 328px;
+  height: 40px;
+  top: 280px;
+  left: 8px;
+  padding: 8px 24px 8px 16px;
+  border-radius: 100px;
+  gap: 8px;
+  border: none;
+  box-shadow: 0px 2px 6px 2px #00000026;
+  box-shadow: 0px 1px 2px 0px #0000004D;
+}
+
+.icons{
+  width: 24px;
+  height: 24px;
+}

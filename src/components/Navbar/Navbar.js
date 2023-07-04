@@ -1,10 +1,10 @@
 import React from "react";
-import "./Navbar.css";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="icons">■  ●  ▲</div>
+    <nav className={styles.navbar}>
+      <div className={styles.icons}>■  ●  ▲</div>
     </nav>
   );
 };
