@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 //Pages
 import Home from "./pages/Home/Home";
 import Cadastrar from "./pages/Cadastrar/Cadastrar";
+import CadastroRealizado from "./pages/CadastroRealizado/CadastroRealizado";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cadastrar" element={<Cadastrar />} />
+            <Route path="/cadastroRealizado" element={<CadastroRealizado />} />
           </Routes>
         </div>
       </BrowserRouter>

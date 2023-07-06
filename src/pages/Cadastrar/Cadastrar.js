@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Cadastrar.module.css";
 
 //Hooks
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 
 //Icons
@@ -31,7 +31,7 @@ const Cadastrar = () => {
 
     localStorage.setItem("fruits", JSON.stringify(fruits))
 
-    Navigate("/");
+    Navigate("/cadastroRealizado", {state: {name}});
   };
 
   return (
