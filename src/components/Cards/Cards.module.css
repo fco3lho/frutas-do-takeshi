@@ -1,0 +1,24 @@
+.cardContainer{
+  background-color: #FFFFFF;
+
+  display: flex;
+  flex-wrap: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  width: Fixed (328px);
+  height: Hug (72px);
+  top: 104px;
+  left: 16px;
+  
+  margin: 0 16px 16px 16px;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  gap: 8px;
+  box-shadow: 0px 2px 6px 2px #00000026;
+  box-shadow: 0px 1px 2px 0px #0000004D;
+}
+
+

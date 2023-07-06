@@ -7,6 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 //Icons
 import { IoAddOutline } from "react-icons/io5";
+import { ReactComponent as Search } from "../../icons/search.svg";
+
+//Components
+import Cards from "../../components/Cards/Cards";
 
 const Home = () => {
   const [fruits, setFruits] = useState(new Array());
@@ -38,16 +42,24 @@ const Home = () => {
           </div>
         </>
       ) : (
-        fruits.map((value, index) => {
-          return (
-            <div key={index}>
-              <p>{index}</p>
-              <p>{value.name}</p>
-              <p>{value.price}</p>
-              <p>{value.amount}</p>
-            </div>
-          );
-        })
+        <div>
+          <label className={styles.label}>
+            <Search className={styles.icons}/>
+            <input type="text" placeholder="Pesquisar fruta" />
+          </label>
+          {fruits.map((value, index) => {
+            return (
+              <Cards
+                key={index}
+                listCard={fruits}
+                setListCard={setFruits}
+                name={value.name}
+                price={value.price}
+                amount={value.amount}
+              />
+            );
+          })}
+        </div>
       )}
     </div>
   );
