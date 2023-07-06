@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Cadastrar.module.css";
 
 //Hooks
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 //Icons
@@ -21,7 +21,7 @@ const Cadastrar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let fruits = new Array()
+    let fruits = []
 
     if(localStorage.hasOwnProperty("fruits")){
       fruits = JSON.parse(localStorage.getItem("fruits"))

@@ -56,7 +56,8 @@ const Home = () => {
             {fruits.map(
               (value, index) =>
                 (query.length === 0 ||
-                  query.toLowerCase() === value.name.toLowerCase()) && (
+                  value.name.toLowerCase().indexOf(query.toLowerCase()) !==
+                    -1) && (
                   <Cards
                     key={index}
                     listCard={fruits}
