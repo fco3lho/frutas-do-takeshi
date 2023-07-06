@@ -55,6 +55,7 @@ const Cadastrar = () => {
           <Cash />
           <input
             type="number"
+            step="0.01"
             name="price"
             placeholder="Preço do Kilo"
             required

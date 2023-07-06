@@ -14,6 +14,7 @@ import Cards from "../../components/Cards/Cards";
 
 const Home = () => {
   const [fruits, setFruits] = useState([]);
+  const [query, setQuery] = useState("");
 
   const Navigate = useNavigate();
 
@@ -43,26 +44,32 @@ const Home = () => {
         </>
       ) : (
         <>
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
             <Search className={styles.icons} />
-            <input type="text" placeholder="Pesquisar fruta" />
+            <input
+              type="text"
+              placeholder="Pesquisar fruta"
+              onChange={(e) => setQuery(e.target.value)}
+            />
           </form>
           <div className={styles.cards}>
-            {fruits.map((value, index) => {
-              return (
-                <Cards
-                  key={index}
-                  listCard={fruits}
-                  setListCard={setFruits}
-                  name={value.name}
-                  price={value.price}
-                  amount={value.amount}
-                />
-              );
-            })}
+            {fruits.map(
+              (value, index) =>
+                (query.length === 0 ||
+                  query.toLowerCase() === value.name.toLowerCase()) && (
+                  <Cards
+                    key={index}
+                    listCard={fruits}
+                    setListCard={setFruits}
+                    name={value.name}
+                    price={value.price}
+                    amount={value.amount}
+                  />
+                )
+            )}
           </div>
           <button className={styles.add}>
-            <IoAddOutline className={styles.iconAdd} onClick={handleClick}/>
+            <IoAddOutline className={styles.iconAdd} onClick={handleClick} />
           </button>
         </>
       )}
