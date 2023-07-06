@@ -13,7 +13,7 @@ import { ReactComponent as Search } from "../../icons/search.svg";
 import Cards from "../../components/Cards/Cards";
 
 const Home = () => {
-  const [fruits, setFruits] = useState(new Array());
+  const [fruits, setFruits] = useState([]);
 
   const Navigate = useNavigate();
 
@@ -42,24 +42,29 @@ const Home = () => {
           </div>
         </>
       ) : (
-        <div>
-          <label className={styles.label}>
-            <Search className={styles.icons}/>
+        <>
+          <form className={styles.form}>
+            <Search className={styles.icons} />
             <input type="text" placeholder="Pesquisar fruta" />
-          </label>
-          {fruits.map((value, index) => {
-            return (
-              <Cards
-                key={index}
-                listCard={fruits}
-                setListCard={setFruits}
-                name={value.name}
-                price={value.price}
-                amount={value.amount}
-              />
-            );
-          })}
-        </div>
+          </form>
+          <div className={styles.cards}>
+            {fruits.map((value, index) => {
+              return (
+                <Cards
+                  key={index}
+                  listCard={fruits}
+                  setListCard={setFruits}
+                  name={value.name}
+                  price={value.price}
+                  amount={value.amount}
+                />
+              );
+            })}
+          </div>
+          <button className={styles.add}>
+            <IoAddOutline className={styles.iconAdd} onClick={handleClick}/>
+          </button>
+        </>
       )}
     </div>
   );

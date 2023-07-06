@@ -1,16 +1,10 @@
 .cardContainer{
   background-color: #FFFFFF;
 
-  display: flex;
-  flex-wrap: column;
-  justify-content: center;
-  align-items: center;
-
   position: relative;
   width: Fixed (328px);
-  height: Hug (72px);
+  height: 40px;
   top: 104px;
-  left: 16px;
   
   margin: 0 16px 16px 16px;
   padding: 16px;
@@ -21,4 +15,49 @@
   box-shadow: 0px 1px 2px 0px #0000004D;
 }
 
+.cardContainer .name{
+  font-weight: 400;
+  color: #212324;
+  position: relative;
+  top: -16px;
+  width: 256px;
+  height: 24px;
+}
 
+.cardContainer div{
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 256px;
+  height: 16px;
+  gap: 16px;
+  top: -32px;
+  font-size: 12px;
+}
+
+.price{
+  color: #008C21;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.amount{
+  color: #6C7072;
+  font-weight: 400;
+}
+
+.icons{
+  background-image: #008C21;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.config{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: -72px;
+  left: 280px;
+}
