@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./Cards.module.css";
 
+//Hooks
+import { useState } from "react";
+
 //Icons
 import { ReactComponent as Cash } from "../../icons/cash-outline-green.svg";
 import { ReactComponent as RightContent } from "../../icons/RightContent.svg";
@@ -13,7 +16,24 @@ import { useContext } from "react";
 import { ModalContext } from "../../context/ModalContext";
 
 const Cards = (props) => {
+  const [editName, setEditName] = useState("");
+  const [editPrice, setEditPrice] = useState(0);
+  const [editAmount, setEditAmount] = useState(0);
+  const [boolean, setBoolean] = useState(false);
+
   const { changeModal, toggleModal } = useContext(ModalContext);
+
+  const toggleBoolean = () => {
+    setBoolean(!boolean);
+  };
+
+  const handleClick = () => {
+    toggleModal();
+    toggleBoolean();
+    setEditName(props.name);
+    setEditPrice(props.price);
+    setEditAmount(props.amount);
+  };
 
   return (
     <>
@@ -25,14 +45,18 @@ const Cards = (props) => {
           </p>
           <p className={styles.amount}>{props.amount} em estoque</p>
         </div>
-        <RightContent className={styles.config} onClick={toggleModal} />
+        <RightContent className={styles.config} onClick={handleClick} />
       </div>
-      <ModalConfig
-        isOpen={changeModal}
-        fruitName={props.name}
-        fruitPrice={props.price}
-        fruitAmount={props.amount}
-      />
+      {boolean ? (
+        <ModalConfig
+          isOpen={changeModal}
+          fruitName={editName}
+          fruitPrice={editPrice}
+          fruitAmount={editAmount}
+        />
+      ) : (
+        <></>
+      )}
     </>
   );
 };
