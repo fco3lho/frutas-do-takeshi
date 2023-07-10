@@ -10,19 +10,28 @@ import Home from "./pages/Home/Home";
 import Cadastrar from "./pages/Cadastrar/Cadastrar";
 import CadastroRealizado from "./pages/CadastroRealizado/CadastroRealizado";
 
+//Context
+import { ModalProvider } from "./context/ModalContext";
+
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cadastrar" element={<Cadastrar />} />
-            <Route path="/cadastroRealizado" element={<CadastroRealizado />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <ModalProvider>
+        <BrowserRouter>
+          <Navbar />
+
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cadastrar" element={<Cadastrar />} />
+              <Route
+                path="/cadastroRealizado"
+                element={<CadastroRealizado />}
+              />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </ModalProvider>
     </>
   );
 }
