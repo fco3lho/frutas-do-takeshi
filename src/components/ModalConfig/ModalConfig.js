@@ -5,12 +5,12 @@ import styles from "./ModalConfig.module.css";
 import { ReactComponent as Pencil } from "../../icons/pencil-outline.svg";
 import { ReactComponent as Trash } from "../../icons/trash-outline.svg";
 
-const Modal = ({ isOpen, fruit }) => {
+const Modal = ({ isOpen, fruitName, fruitPrice, fruitAmount }) => {
   if (isOpen) {
     return (
       <div className={styles.modal}>
-        <div><Pencil/>Editar {fruit}</div>
-        <div><Trash/>Excluir {fruit}</div>
+        <div><Pencil/>Editar {fruitName}</div>
+        <div><Trash/>Excluir {fruitName}</div>
       </div>
     );
   }

@@ -13,7 +13,7 @@ import { useContext } from "react";
 import { ModalContext } from "../../context/ModalContext";
 
 const Cards = (props) => {
-  const { changeModal, handleModal } = useContext(ModalContext);
+  const { changeModal, toggleModal } = useContext(ModalContext);
 
   return (
     <>
@@ -25,9 +25,14 @@ const Cards = (props) => {
           </p>
           <p className={styles.amount}>{props.amount} em estoque</p>
         </div>
-        <RightContent className={styles.config} onClick={handleModal} />
+        <RightContent className={styles.config} onClick={toggleModal} />
       </div>
-      <ModalConfig isOpen={changeModal} fruit={props.name} className={styles.modal} />
+      <ModalConfig
+        isOpen={changeModal}
+        fruitName={props.name}
+        fruitPrice={props.price}
+        fruitAmount={props.amount}
+      />
     </>
   );
 };

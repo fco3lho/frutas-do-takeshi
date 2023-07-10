@@ -12,9 +12,15 @@ import { ReactComponent as Search } from "../../icons/search.svg";
 //Components
 import Cards from "../../components/Cards/Cards";
 
+//Context
+import { useContext } from "react";
+import { ModalContext } from "../../context/ModalContext";
+
 const Home = () => {
   const [fruits, setFruits] = useState([]);
   const [query, setQuery] = useState("");
+
+  const { setFalse } = useContext(ModalContext);
 
   const Navigate = useNavigate();
 
@@ -49,7 +55,10 @@ const Home = () => {
             <input
               type="text"
               placeholder="Pesquisar fruta"
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setFalse();
+              }}
             />
           </form>
           <div className={styles.cards}>
