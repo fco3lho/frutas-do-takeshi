@@ -4,6 +4,10 @@ import styles from "./ModalConfig.module.css";
 //Hooks
 import { useNavigate } from "react-router-dom";
 
+//Context
+import { useContext } from "react";
+import { ModalContext } from "../../context/ModalContext";
+
 //Icons
 import { ReactComponent as Pencil } from "../../icons/pencil-outline.svg";
 import { ReactComponent as Trash } from "../../icons/trash-outline.svg";
@@ -11,8 +15,13 @@ import { ReactComponent as Trash } from "../../icons/trash-outline.svg";
 const Modal = ({ isOpen, fruitIndex, fruitName, fruitPrice, fruitAmount }) => {
   const Navigate = useNavigate();
 
+  const { setFalse } = useContext(ModalContext);
+
   const navigateToEdit = () => {
-    Navigate("/editar", { state: { fruitIndex, fruitName, fruitPrice, fruitAmount } });
+    setFalse();
+    Navigate("/editar", {
+      state: { fruitIndex, fruitName, fruitPrice, fruitAmount },
+    });
   };
 
   if (isOpen) {

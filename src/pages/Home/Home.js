@@ -20,7 +20,7 @@ const Home = () => {
   const [fruits, setFruits] = useState([]);
   const [query, setQuery] = useState("");
 
-  const { setFalse } = useContext(ModalContext);
+  const { changeModal, setFalse } = useContext(ModalContext);
 
   const Navigate = useNavigate();
 
@@ -35,7 +35,12 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={styles.home}>
+    <div
+      className={styles.home}
+      onClick={() => {
+        if (changeModal) setFalse();
+      }}
+    >
       {fruits.length === 0 ? (
         <>
           <div className={styles.p}>

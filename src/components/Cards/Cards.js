@@ -29,12 +29,12 @@ const Cards = (props) => {
   };
 
   const handleClick = () => {
-    toggleModal();
-    toggleBoolean();
     setIndex(props.index);
     setEditName(props.name);
     setEditPrice(props.price);
     setEditAmount(props.amount);
+    toggleModal();
+    toggleBoolean();
   };
 
   return (
@@ -49,7 +49,7 @@ const Cards = (props) => {
         </div>
         <RightContent className={styles.config} onClick={handleClick} />
       </div>
-      {boolean ? (
+      {boolean && changeModal && (
         <ModalConfig
           isOpen={changeModal}
           fruitIndex={index}
@@ -57,8 +57,6 @@ const Cards = (props) => {
           fruitPrice={editPrice}
           fruitAmount={editAmount}
         />
-      ) : (
-        <></>
       )}
     </>
   );
