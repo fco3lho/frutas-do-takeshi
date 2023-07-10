@@ -11,16 +11,19 @@ import { ReactComponent as Search } from "../../icons/search.svg";
 
 //Components
 import Cards from "../../components/Cards/Cards";
+import ModalDelete from "../../components/ModalDelete/ModalDelete";
 
 //Context
 import { useContext } from "react";
 import { ModalContext } from "../../context/ModalContext";
+import { ModalDeleteContext } from "../../context/ModalDeleteContext";
 
 const Home = () => {
   const [fruits, setFruits] = useState([]);
   const [query, setQuery] = useState("");
 
   const { changeModal, setFalse } = useContext(ModalContext);
+  const { booleanModalDelete, fruitIndex } = useContext(ModalDeleteContext);
 
   const Navigate = useNavigate();
 
@@ -32,7 +35,7 @@ const Home = () => {
     if (localStorage.hasOwnProperty("fruits")) {
       setFruits(JSON.parse(localStorage.getItem("fruits")));
     }
-  }, []);
+  }, [booleanModalDelete]);
 
   return (
     <div
@@ -88,6 +91,9 @@ const Home = () => {
             <IoAddOutline className={styles.iconAdd} onClick={handleClick} />
           </button>
         </>
+      )}
+      {booleanModalDelete && (
+        <ModalDelete isOpen={booleanModalDelete} fruitIndex={fruitIndex} />
       )}
     </div>
   );

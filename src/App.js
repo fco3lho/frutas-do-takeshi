@@ -14,22 +14,28 @@ import EdicaoRealizada from "./pages/EdicaoRealizada/EdicaoRealizada";
 
 //Context
 import { ModalProvider } from "./context/ModalContext";
+import { ModalDeleteProvider } from "./context/ModalDeleteContext";
 
 function App() {
   return (
     <ModalProvider>
-      <BrowserRouter>
-        <Navbar />
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cadastrar" element={<Cadastrar />} />
-            <Route path="/cadastroRealizado" element={<CadastroRealizado />} />
-            <Route path="/editar" element={<Editar />} />
-            <Route path="/edicaoRealizada" element={<EdicaoRealizada />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <ModalDeleteProvider>
+        <BrowserRouter>
+          <Navbar />
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cadastrar" element={<Cadastrar />} />
+              <Route
+                path="/cadastroRealizado"
+                element={<CadastroRealizado />}
+              />
+              <Route path="/editar" element={<Editar />} />
+              <Route path="/edicaoRealizada" element={<EdicaoRealizada />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </ModalDeleteProvider>
     </ModalProvider>
   );
 }
