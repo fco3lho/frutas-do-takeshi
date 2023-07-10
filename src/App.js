@@ -10,7 +10,7 @@ import Home from "./pages/Home/Home";
 import Cadastrar from "./pages/Cadastrar/Cadastrar";
 import CadastroRealizado from "./pages/CadastroRealizado/CadastroRealizado";
 import Editar from "./pages/Editar/Editar";
-import EditarRealizado from "./pages/EditarRealizado/EditarRealizado";
+import EdicaoRealizada from "./pages/EdicaoRealizada/EdicaoRealizada";
 
 //Context
 import { ModalProvider } from "./context/ModalContext";
@@ -26,7 +26,7 @@ function App() {
             <Route path="/cadastrar" element={<Cadastrar />} />
             <Route path="/cadastroRealizado" element={<CadastroRealizado />} />
             <Route path="/editar" element={<Editar />} />
-            <Route path="/edicaoRealizada" element={<EditarRealizado />} />
+            <Route path="/edicaoRealizada" element={<EdicaoRealizada />} />
           </Routes>
         </div>
       </BrowserRouter>

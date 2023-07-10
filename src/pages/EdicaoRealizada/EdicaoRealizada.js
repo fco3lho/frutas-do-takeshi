@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./EditarRealizado.module.css";
+import styles from "./EdicaoRealizada.module.css";
 
 //Hooks
 import { useLocation, useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { ReactComponent as RegistrationDone } from "../../icons/registration-done.svg";
 
-const EditarRealizado = () => {
+const EdicaoRealizada = () => {
   const { state } = useLocation();
   const Navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const EditarRealizado = () => {
   };
 
   return (
-    <div className={styles.cadastroRealizado}>
+    <div className={styles.edicaoRealizada}>
       <div>
         <IoClose className={styles.icons} onClick={handleNavigateHome} />
       </div>
@@ -35,4 +35,4 @@ const EditarRealizado = () => {
   );
 };
 
-export default EditarRealizado;
+export default EdicaoRealizada;
