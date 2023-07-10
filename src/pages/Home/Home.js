@@ -71,6 +71,7 @@ const Home = () => {
                     key={index}
                     listCard={fruits}
                     setListCard={setFruits}
+                    index={index}
                     name={value.name}
                     price={value.price}
                     amount={value.amount}

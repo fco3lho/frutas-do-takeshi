@@ -16,6 +16,7 @@ import { useContext } from "react";
 import { ModalContext } from "../../context/ModalContext";
 
 const Cards = (props) => {
+  const [index, setIndex] = useState(0);
   const [editName, setEditName] = useState("");
   const [editPrice, setEditPrice] = useState(0);
   const [editAmount, setEditAmount] = useState(0);
@@ -30,6 +31,7 @@ const Cards = (props) => {
   const handleClick = () => {
     toggleModal();
     toggleBoolean();
+    setIndex(props.index);
     setEditName(props.name);
     setEditPrice(props.price);
     setEditAmount(props.amount);
@@ -50,6 +52,7 @@ const Cards = (props) => {
       {boolean ? (
         <ModalConfig
           isOpen={changeModal}
+          fruitIndex={index}
           fruitName={editName}
           fruitPrice={editPrice}
           fruitAmount={editAmount}
