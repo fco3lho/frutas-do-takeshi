@@ -21,17 +21,17 @@ const Cadastrar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let fruits = []
+    let fruits = [];
 
-    if(localStorage.hasOwnProperty("fruits")){
-      fruits = JSON.parse(localStorage.getItem("fruits"))
+    if (localStorage.hasOwnProperty("fruits")) {
+      fruits = JSON.parse(localStorage.getItem("fruits"));
     }
 
-    fruits.push({name, price, amount})
+    fruits.push({ name, price, amount });
 
-    localStorage.setItem("fruits", JSON.stringify(fruits))
+    localStorage.setItem("fruits", JSON.stringify(fruits));
 
-    Navigate("/cadastroRealizado", {state: {name}});
+    Navigate("/cadastroRealizado", { state: { name } });
   };
 
   return (

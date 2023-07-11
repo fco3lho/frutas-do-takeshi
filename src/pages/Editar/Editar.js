@@ -30,7 +30,7 @@ const Editar = () => {
       fruits = JSON.parse(localStorage.getItem("fruits"));
     }
 
-    fruits[index] = {name, price, amount}
+    fruits[index] = { name, price, amount };
 
     localStorage.setItem("fruits", JSON.stringify(fruits));
 
