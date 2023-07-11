@@ -58,6 +58,7 @@ const Home = () => {
         </>
       ) : (
         <>
+          <div className={booleanModalDelete ? (styles.mask) : (null)}></div>
           <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
             <Search className={styles.icons} />
             <input

@@ -1,5 +1,6 @@
 .containerModal{
   position: absolute;
+  z-index: 2;
   width: Fixed (328px);
   height: Fixed (240px);
   top: 200px;
