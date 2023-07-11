@@ -15,14 +15,14 @@ import ModalDelete from "../../components/ModalDelete/ModalDelete";
 
 //Context
 import { useContext } from "react";
-import { ModalContext } from "../../context/ModalContext";
+import { ModalConfigContext } from "../../context/ModalConfigContext";
 import { ModalDeleteContext } from "../../context/ModalDeleteContext";
 
 const Home = () => {
   const [fruits, setFruits] = useState([]);
   const [query, setQuery] = useState("");
 
-  const { changeModal, setFalse } = useContext(ModalContext);
+  const { booleanModalConfig, setFalse } = useContext(ModalConfigContext);
   const { booleanModalDelete, fruitIndex } = useContext(ModalDeleteContext);
 
   const Navigate = useNavigate();
@@ -41,7 +41,7 @@ const Home = () => {
     <div
       className={styles.home}
       onClick={() => {
-        if (changeModal) setFalse();
+        if (booleanModalConfig) setFalse();
       }}
     >
       {fruits.length === 0 ? (

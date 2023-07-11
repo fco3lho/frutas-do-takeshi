@@ -13,12 +13,12 @@ import Editar from "./pages/Editar/Editar";
 import EdicaoRealizada from "./pages/EdicaoRealizada/EdicaoRealizada";
 
 //Context
-import { ModalProvider } from "./context/ModalContext";
+import { ModalConfigProvider } from "./context/ModalConfigContext";
 import { ModalDeleteProvider } from "./context/ModalDeleteContext";
 
 function App() {
   return (
-    <ModalProvider>
+    <ModalConfigProvider>
       <ModalDeleteProvider>
         <BrowserRouter>
           <Navbar />
@@ -36,7 +36,7 @@ function App() {
           </div>
         </BrowserRouter>
       </ModalDeleteProvider>
-    </ModalProvider>
+    </ModalConfigProvider>
   );
 }
 

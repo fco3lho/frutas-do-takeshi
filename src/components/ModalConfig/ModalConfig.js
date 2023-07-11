@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 //Context
 import { useContext } from "react";
-import { ModalContext } from "../../context/ModalContext";
+import { ModalConfigContext } from "../../context/ModalConfigContext";
 import { ModalDeleteContext } from "../../context/ModalDeleteContext";
 
 //Icons
@@ -16,7 +16,7 @@ import { ReactComponent as Trash } from "../../icons/trash-outline.svg";
 const Modal = ({ isOpen, fruitIndex, fruitName, fruitPrice, fruitAmount }) => {
   const Navigate = useNavigate();
 
-  const { setFalse } = useContext(ModalContext);
+  const { setFalse } = useContext(ModalConfigContext);
   const { toggleModalDelete } = useContext(ModalDeleteContext);
 
   const navigateToEdit = () => {

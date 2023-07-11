@@ -13,7 +13,7 @@ import ModalConfig from "../ModalConfig/ModalConfig.js";
 
 //Context
 import { useContext } from "react";
-import { ModalContext } from "../../context/ModalContext";
+import { ModalConfigContext } from "../../context/ModalConfigContext";
 
 const Cards = (props) => {
   const [index, setIndex] = useState(0);
@@ -22,7 +22,7 @@ const Cards = (props) => {
   const [editAmount, setEditAmount] = useState(0);
   const [boolean, setBoolean] = useState(false);
 
-  const { changeModal, toggleModal } = useContext(ModalContext);
+  const { booleanModalConfig, toggleModalConfig } = useContext(ModalConfigContext);
 
   const toggleBoolean = () => {
     setBoolean(!boolean);
@@ -33,7 +33,7 @@ const Cards = (props) => {
     setEditName(props.name);
     setEditPrice(props.price);
     setEditAmount(props.amount);
-    toggleModal();
+    toggleModalConfig();
     toggleBoolean();
   };
 
@@ -47,11 +47,11 @@ const Cards = (props) => {
           </p>
           <p className={styles.amount}>{props.amount} em estoque</p>
         </div>
-        <RightContent className={styles.config} onClick={handleClick} />
+        <RightContent className={styles.config} onClick={(handleClick)} />
       </div>
-      {boolean && changeModal && (
+      {boolean && booleanModalConfig && (
         <ModalConfig
-          isOpen={changeModal}
+          isOpen={booleanModalConfig}
           fruitIndex={index}
           fruitName={editName}
           fruitPrice={editPrice}
