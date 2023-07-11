@@ -12,6 +12,7 @@ import { ReactComponent as Search } from "../../icons/search.svg";
 //Components
 import Cards from "../../components/Cards/Cards";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
+import ModalConfig from "../../components/ModalConfig/ModalConfig";
 
 //Context
 import { useContext } from "react";
@@ -22,7 +23,14 @@ const Home = () => {
   const [fruits, setFruits] = useState([]);
   const [query, setQuery] = useState("");
 
-  const { booleanModalConfig, setFalse } = useContext(ModalConfigContext);
+  const {
+    booleanModalConfig,
+    setFalse,
+    editIndex,
+    editName,
+    editPrice,
+    editAmount,
+  } = useContext(ModalConfigContext);
   const { booleanModalDelete, fruitIndex } = useContext(ModalDeleteContext);
 
   const Navigate = useNavigate();
@@ -58,7 +66,11 @@ const Home = () => {
         </>
       ) : (
         <>
-          <div className={booleanModalDelete ? (styles.mask) : (null)}></div>
+          <div
+            className={
+              booleanModalDelete || booleanModalConfig ? styles.mask : null
+            }
+          ></div>
           <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
             <Search className={styles.icons} />
             <input
@@ -95,6 +107,15 @@ const Home = () => {
       )}
       {booleanModalDelete && (
         <ModalDelete isOpen={booleanModalDelete} fruitIndex={fruitIndex} />
+      )}
+      {booleanModalConfig && (
+        <ModalConfig
+          isOpen={booleanModalConfig}
+          fruitIndex={editIndex}
+          fruitName={editName}
+          fruitPrice={editPrice}
+          fruitAmount={editAmount}
+        />
       )}
     </div>
   );
